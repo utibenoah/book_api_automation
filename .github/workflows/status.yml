@@ -13,12 +13,24 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18.x'  # Adjust to your desired Node.js version
+
+
       - name: Install Newman and htmlexra
         run: npm install -g newman newman-reporter-htmlextra
 
    
+      - name: Make File Executable
+        run: |
+              chmod +x ./utibenoah/book_api_automation/blob/main/test_newman.sh
 
 
       - name: Run Postman Tests
         run: |
-          ./utibenoah/book_api_automation/blob/main/test_newman.s
+          ./utibenoah/book_api_automation/blob/main/test_newman.sh
+
+
+      - name: Upload reports to GitHub
+        uses: actions/upload-artifact@v3
+        with:
+          name: postman-test-results
+          path: reports/postman-test-results.html
