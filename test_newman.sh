@@ -8,4 +8,4 @@
 # mkdir -p $OUTPUT_DIR
 
 # Run Newman with HTML reporter for status page
-newman runtibenoah/book_api_automation/blob/main/books_api.postman_collection.json -r htmlextra
+newman run utibenoah/book_api_automation/blob/main/books_api.postman_collection.json -r htmlextra
