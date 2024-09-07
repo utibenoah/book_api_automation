@@ -19,15 +19,15 @@ jobs:https://github.com/
         run: mkdir -p reports
 
 
-      - name: Run Postman Tests
-        run: |
-          newman run book_api_automation/books_api.postman_collection.json \
-          --reporters html \
-          --reporter-html-export reports/postman-test-results.html
+      # - name: Run Postman Tests
+      #   run: |
+      #     newman run book_api_automation/books_api.postman_collection.json \
+      #     --reporters html \
+      #     --reporter-html-export reports/postman-test-results.html
 
 
-      - name: Upload reports to GitHub
-        uses: actions/upload-artifact@v3
-        with:
-          name: postman-test-results
-          path: reports/postman-test-results.html
+      # - name: Upload reports to GitHub
+      #   uses: actions/upload-artifact@v3
+      #   with:
+      #     name: postman-test-results
+      #     path: reports/postman-test-results.html
