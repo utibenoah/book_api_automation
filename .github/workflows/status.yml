@@ -1,0 +1,33 @@
+name: Run Postman Tests
+
+on:
+  push:
+    branches: [main]
+
+jobs:https://github.com/
+  run-postman-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'  # Adjust to your desired Node.js version
+      - name: Install Newman and htmlexra
+        run: npm install -g newman newman-reporter-htmlextra
+      - name: Create a directory for reports
+        run: mkdir -p reports
+
+
+      - name: Run Postman Tests
+        run: |
+          newman run book_api_automation/path/to/your/postman/file.json \
+          --reporters html \
+          --reporter-html-export reports/postman-test-results.html
+
+
+      - name: Upload reports to GitHub
+        uses: actions/upload-artifact@v3
+        with:
+          name: postman-test-results
+          path: reports/postman-test-results.html
