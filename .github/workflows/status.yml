@@ -21,7 +21,7 @@ jobs:
 
       - name: Run Postman Tests
         run: |
-          newman run book_api_automation/books_api.postman_collection.json \
+          newman run https://github.com/utibenoah/book_api_automation/blob/main/books_api.postman_collection.json \
           --reporters html \
           --reporter-html-export reports/postman-test-results.html
 
